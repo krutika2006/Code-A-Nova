@@ -1,0 +1,180 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins;
+}
+
+body{
+  background:#050510;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* background glow */
+.bg{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(120deg,#0f0c29,#302b63,#24243e);
+  z-index:-3;
+}
+
+/* blobs */
+.blob{
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  filter:blur(90px);
+  z-index:-2;
+}
+
+.b1{background:#00f5ff; top:10%; left:10%;}
+.b2{background:#ff00ff; bottom:10%; right:10%;}
+
+/* NAV */
+.nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+}
+
+.nav ul{
+  display:flex;
+  gap:20px;
+  list-style:none;
+}
+
+.nav a{
+  color:white;
+  text-decoration:none;
+}
+
+.nav a:hover{
+  color:#00f5ff;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:3rem;
+}
+
+.hero span{
+  color:#00f5ff;
+}
+
+/* BUTTONS */
+.btns a{
+  display:inline-block;
+  margin:10px;
+  padding:12px 25px;
+  border-radius:30px;
+  text-decoration:none;
+  color:black;
+  background:linear-gradient(45deg,#00f5ff,#ff00ff);
+  transition:0.3s;
+}
+
+.btns a:hover{
+  transform:scale(1.1);
+}
+
+.btns .alt{
+  background:transparent;
+  border:2px solid #00f5ff;
+  color:white;
+}
+
+/* SECTIONS */
+.section{
+  padding:60px 20px;
+  width:80%;
+  margin:auto;
+}
+
+/* GLASS */
+.glass{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  padding:40px;
+}
+
+/* SKILLS */
+.skill{
+  margin:15px 0;
+}
+
+.bar{
+  height:10px;
+  background:#222;
+  border-radius:20px;
+}
+
+.fill{
+  height:100%;
+  background:linear-gradient(90deg,#00f5ff,#ff00ff);
+}
+
+/* PROJECTS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 20px #00f5ff;
+}
+
+/* CONTACT FORM */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+input,textarea{
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#111;
+  color:white;
+}
+
+button{
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#00f5ff,#ff00ff);
+  cursor:pointer;
+}
+
+/* STATUS MESSAGE */
+#status{
+  text-align:center;
+  font-weight:bold;
+  margin-top:10px;
+}
