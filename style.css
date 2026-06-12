@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
   margin:0;
   padding:0;
@@ -177,4 +178,254 @@ button{
   text-align:center;
   font-weight:bold;
   margin-top:10px;
+=======
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #eef5ff, #f7fbff);
+  color: #1f2d3d;
+  line-height: 1.6;
+}
+
+/* HEADER - GLASS EFFECT */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 110, 253, 0.85);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+nav a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(120deg, #0b6efd, #00d4ff);
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  border-radius: 0 0 60px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h2 {
+  font-size: 45px;
+  margin-bottom: 10px;
+  animation: fadeUp 1s ease;
+}
+
+.hero p {
+  opacity: 0.9;
+  font-size: 18px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* BUTTON */
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0b6efd, #00c6ff);
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* SECTION */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+  color: #0b6efd;
+}
+
+/* DOCTOR CARDS */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card {
+  width: 260px;
+  padding: 25px;
+  border-radius: 18px;
+  background: white;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border: 2px solid #0b6efd;
+}
+
+/* ACCORDION */
+.accordion .item {
+  width: 65%;
+  margin: 15px auto;
+}
+
+.accordion button {
+  width: 100%;
+  text-align: left;
+  background: white;
+  color: #0b6efd;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  padding: 14px;
+  font-size: 16px;
+}
+
+.content {
+  display: none;
+  background: #eef6ff;
+  padding: 15px;
+  border-radius: 0 0 12px 12px;
+  margin-top: 5px;
+}
+
+/* FORMS - FLOATING CARD */
+form {
+  width: 380px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  transition: 0.3s;
+}
+
+form:hover {
+  transform: translateY(-5px);
+}
+
+input, textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+  border-color: #0b6efd;
+  box-shadow: 0 0 8px rgba(11,110,253,0.3);
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  margin: 10% auto;
+  width: 340px;
+  border-radius: 18px;
+  text-align: center;
+  animation: pop 0.3s ease;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #0b6efd;
+  color: white;
+  text-align: center;
+  padding: 18px;
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .accordion .item {
+    width: 90%;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+>>>>>>> d11afb7abc6e8d379f64a11406d5013b204ef6ff
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,4 +91,137 @@
 
 <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Healthcare Management System</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>HealthCare+</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#doctors">Doctors</a>
+    <a href="#specialities">Specialities</a>
+    <a href="#appointment">Appointment</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="section hero">
+  <h2>Your Health, Our Priority</h2>
+  <p>Book appointments with top doctors easily and quickly.</p>
+  <button onclick="document.getElementById('appointment').scrollIntoView({behavior:'smooth'})">
+    Book Appointment
+  </button>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="section">
+  <h2>Our Doctors</h2>
+
+  <div class="card-container">
+
+    <div class="card">
+      <h3>Dr. Anjali Sharma</h3>
+      <p>Cardiologist</p>
+      <button onclick="showDoctor('Dr. Anjali Sharma','Cardiologist','10+ years experience in heart care.')">
+        Know More
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Dr. Rahul Verma</h3>
+      <p>Neurologist</p>
+      <button onclick="showDoctor('Dr. Rahul Verma','Neurologist','Expert in brain and nervous system disorders.')">
+        Know More
+      </button>
+    </div>
+
+    <div class="card">
+      <h3>Dr. Priya Singh</h3>
+      <p>Pediatrician</p>
+      <button onclick="showDoctor('Dr. Priya Singh','Pediatrician','Specialist in child healthcare.')">
+        Know More
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIALITIES -->
+<section id="specialities" class="section">
+  <h2>Our Specialities</h2>
+
+  <div class="accordion">
+    <div class="item">
+      <button onclick="toggle(this)">Cardiology</button>
+      <p class="content">Heart treatment, ECG, bypass surgery, and emergency care.</p>
+    </div>
+
+    <div class="item">
+      <button onclick="toggle(this)">Neurology</button>
+      <p class="content">Brain disorders, stroke treatment, epilepsy care.</p>
+    </div>
+
+    <div class="item">
+      <button onclick="toggle(this)">Orthopedics</button>
+      <p class="content">Bone fractures, joint replacement, sports injuries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPOINTMENT -->
+<section id="appointment" class="section">
+  <h2>Book Appointment</h2>
+
+  <form id="appointmentForm">
+    <input type="text" id="name" placeholder="Full Name" required/>
+    <input type="email" id="email" placeholder="Email" required/>
+    <input type="number" id="phone" placeholder="Phone Number" required/>
+    <input type="date" id="date" required/>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <h2>Contact Us</h2>
+
+  <form id="contactForm">
+    <input type="text" id="cname" placeholder="Your Name" required/>
+    <input type="email" id="cemail" placeholder="Your Email" required/>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" class="close">&times;</span>
+    <h3 id="docName"></h3>
+    <p id="docSpec"></p>
+    <p id="docInfo"></p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 HealthCare+ | All Rights Reserved</p>
+</footer>
+
+</body>
+>>>>>>> d11afb7abc6e8d379f64a11406d5013b204ef6ff
 </html>
