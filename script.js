@@ -1,158 +1,71 @@
-const apiKey = "6c1a7f2b50c316f9914f795e49bdfb17";
+// EmailJS init
+(function () {
+  emailjs.init("aoPqxtvr1vT7Wb40A");
+})();
 
-async function getWeather() {
-
-    const city = document.getElementById("cityInput").value.trim();
-
-    if(city === ""){
-        alert("Please enter a city name");
-        return;
-    }
-
-    const weatherURL =
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-    const forecastURL =
-    `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-
-    try{
-
-        const weatherResponse = await fetch(weatherURL);
-        const weatherData = await weatherResponse.json();
-
-        if(weatherData.cod != 200){
-            alert(weatherData.message);
-            return;
-        }
-
-        console.log("Weather Data:", weatherData);
-
-        document.getElementById("cityName").innerText =
-        `${weatherData.name}, ${weatherData.sys.country}`;
-
-        document.getElementById("temp").innerText =
-        `${Math.round(weatherData.main.temp)}°C`;
-
-        document.getElementById("humidity").innerText =
-        weatherData.main.humidity;
-
-        document.getElementById("wind").innerText =
-        weatherData.wind.speed;
-
-        document.getElementById("condition").innerText =
-        weatherData.weather[0].description;
-
-        document.getElementById("icon").src =
-        `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png`;
-
-        changeTheme(weatherData.weather[0].main);
-
-        const forecastResponse = await fetch(forecastURL);
-        const forecastData = await forecastResponse.json();
-
-        displayForecast(forecastData.list);
-
-    }
-    catch(error){
-        console.error(error);
-        alert("Error fetching weather data");
-    }
+// Accordion
+function toggle(btn) {
+  const content = btn.nextElementSibling;
+  content.style.display =
+    content.style.display === "block" ? "none" : "block";
 }
 
-function displayForecast(data){
-
-    const container =
-    document.getElementById("forecastContainer");
-
-    container.innerHTML = "";
-
-    for(let i = 0; i < data.length; i += 8){
-
-        const item = data[i];
-
-        const card = document.createElement("div");
-
-        card.classList.add("forecast-card");
-
-        card.innerHTML = `
-            <h4>${item.dt_txt.split(" ")[0]}</h4>
-
-            <img src="https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png">
-
-            <p><strong>${Math.round(item.main.temp)}°C</strong></p>
-
-            <p>${item.weather[0].main}</p>
-        `;
-
-        container.appendChild(card);
-    }
+// Doctor Modal
+function showDoctor(name, spec, info) {
+  document.getElementById("docName").innerText = name;
+  document.getElementById("docSpec").innerText = spec;
+  document.getElementById("docInfo").innerText = info;
+  document.getElementById("modal").style.display = "block";
 }
 
-function changeTheme(condition){
-
-    document.body.className = "";
-
-    condition = condition.toLowerCase();
-
-    console.log("Current Weather Condition:", condition);
-
-    // Snow
-    if(
-        condition.includes("snow") ||
-        condition.includes("sleet") ||
-        condition.includes("blizzard")
-    ){
-        document.body.classList.add("snowy");
-    }
-
-    // Thunderstorm
-    else if(
-        condition.includes("thunder") ||
-        condition.includes("storm")
-    ){
-        document.body.classList.add("thunder");
-    }
-
-    // Rain
-    else if(
-        condition.includes("rain") ||
-        condition.includes("drizzle")
-    ){
-        document.body.classList.add("rainy");
-    }
-
-    // Sunny
-    else if(condition.includes("clear")){
-        document.body.classList.add("sunny");
-    }
-
-    // Cloudy
-    else if(condition.includes("cloud")){
-        document.body.classList.add("cloudy");
-    }
-
-    // Default
-    else{
-        document.body.classList.add("cloudy");
-    }
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 }
 
-// Search using Enter Key
-document.getElementById("cityInput")
-.addEventListener("keypress", function(event){
+// Appointment Form
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("appointmentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
 
-    if(event.key === "Enter"){
-        getWeather();
-    }
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const date = document.getElementById("date").value;
 
+    emailjs.send("service_3tqmaf4","template_qx99hhf", {
+      name,
+      email,
+      phone,
+      date
+    })
+    .then(() => {
+      alert("Appointment booked successfully!");
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Failed to send appointment");
+    });
+  });
+
+  // Contact Form
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const cname = document.getElementById("cname").value;
+    const cemail = document.getElementById("cemail").value;
+    const message = document.getElementById("message").value;
+
+    emailjs.send("service_3tqmaf4","template_qx99hhf", {
+      name: cname,
+      email: cemail,
+      message
+    })
+    .then(() => {
+      alert("Message sent successfully!");
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("Failed to send message");
+    });
+  });
 });
-
-// Default city on startup
-window.onload = function(){
-
-    document.getElementById("cityInput").value = "Nagpur";
-
-    getWeather();
-
-
-};
