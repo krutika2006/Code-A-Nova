@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🌤 Weather App</h1>
+
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Enter City / District Name">
+        <button onclick="getWeather()">Search</button>
+    </div>
+
+    <!-- Loading / Error Message -->
+    <div id="message"></div>
+
+    <div class="weather-card">
+
+        <h2 id="cityName">Search a City</h2>
+
+        <img id="icon" src="" alt="Weather Icon">
+
+        <h1 id="temp">--°C</h1>
+
+        <p id="condition"></p>
+
+        <p>
+            <strong>🌡 Feels Like:</strong>
+            <span id="feelsLike">--</span>°C
+        </p>
+
+        <p>
+            <strong>📝 Description:</strong>
+            <span id="description">--</span>
+        </p>
+
+        <div class="details">
+            <p>💧 Humidity: <span id="humidity">--</span>%</p>
+            <p>🌬 Wind: <span id="wind">--</span> km/h</p>
+        </div>
+
+    </div>
+
+    <h2 style="margin-top:25px;">📅 5-Day Forecast</h2>
+
+    <div id="forecastContainer" class="forecast-container"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
